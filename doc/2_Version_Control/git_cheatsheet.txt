@@ -1,0 +1,8 @@
+git commit - commits a snapshot of the new work that you have done
+git branch - creates a branch from the branch you're currently on (a pointer to a commit, new commits stack onto it)
+git checkout - switches you onto a branch (or commit/file) so you're working from its content
+git pull - fetches new commits from a remote and merges them into your current branch
+git push - uploads your local commits to a remote branch
+git merge - combines another branch's history into your current branch
+git rebase - replays your commits on top of another branch, rewriting history instead of merging
+git fetch - downloads new commits from a remote without merging them (updates something like upstream/main)
