@@ -3,6 +3,11 @@ git branch - creates a branch from the branch you're currently on (a pointer to 
 git checkout - switches you onto a branch (or commit/file) so you're working from its content
 git pull - fetches new commits from a remote and merges them into your current branch
 git push - uploads your local commits to a remote branch
+    -u <remote> <branch> - sets that remote/branch as the default upstream, so future push/pull on this branch don't need the remote and branch typed out
 git merge - combines another branch's history into your current branch
 git rebase - replays your commits on top of another branch, rewriting history instead of merging
-git fetch - downloads new commits from a remote without merging them (updates something like upstream/main)
+git fetch - downloads new commits from a remote without merging them 
+git add - stages changes (new/modified files) so they'll be included in the next commit
+git status - shows what's staged, what's modified but unstaged, and what's untracked
+git log - shows commit history for the current branch
+git diff - shows the changes that have occured to the files int the current directory
