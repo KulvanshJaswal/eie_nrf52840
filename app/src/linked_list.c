@@ -95,6 +95,7 @@ void ll_add_data_at_cursor(linked_list_t* linked_list, int32_t data) {
   new_node->next = linked_list->cursor->next;
   new_node->prev = linked_list->cursor;
   linked_list->cursor->next = new_node;
+  linked_list->cursor = new_node->next;
 };
 
 void ll_remove_data_at_cursor(linked_list_t* linked_list) {
@@ -120,7 +121,7 @@ void ll_remove_data_at_cursor(linked_list_t* linked_list) {
   // vice versa
   if (before_cursor != NULL) {
     // Hint something is missing here:
-
+    before_cursor->next = cursor->next;
     // Update the cursor in the linked list to point to the element that
     // was before the cursor
     linked_list->cursor = before_cursor;
