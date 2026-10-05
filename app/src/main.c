@@ -20,11 +20,27 @@ int main(void) {
     return 0;
   }
 
+  uint8_t counter = 0;
+
   while(1){
     if(BTN_check_clear_pressed(BTN0)){
-      LED_toggle(LED0);
-      printk("Button 0 Pressed \n");
+      counter += 1;
+
+      uint8_t led0 = (counter >> 0) & 1;
+      uint8_t led1 = (counter >> 1) & 1;
+      uint8_t led2 = (counter >> 2) & 1;
+      uint8_t led3 = (counter >> 3) & 1;
+
+      LED_set(LED0, led0? LED_ON : LED_OFF);
+      LED_set(LED1, led1? LED_ON : LED_OFF);
+      LED_set(LED2, led2? LED_ON : LED_OFF);
+      LED_set(LED3, led3? LED_ON : LED_OFF);
     }
+
+    if(counter > 15){
+      counter = 0;
+    }
+
     k_msleep(10);
   }
 
@@ -52,6 +68,17 @@ int main(void) {
       LED_pwm(LED0, counter);
       k_msleep(SLEEP_MS);
     }
+  }
+  */
+
+  //Button pressing
+  /*
+  while(1){
+    if(BTN_check_clear_pressed(BTN0)){
+      LED_toggle(LED0);
+      printk("Button 0 Pressed \n");
+    }
+    k_msleep(10);
   }
   */
   return 0;
