@@ -21,16 +21,14 @@ int main(void) {
   }
 
   while(1){
-    for(uint8_t counter = 0; counter <= 100; counter += 10){
-      LED_pwm(LED0, counter);
-      k_msleep(SLEEP_MS);
+    if(BTN_check_clear_pressed(BTN0)){
+      LED_toggle(LED0);
+      printk("Button 0 Pressed \n");
     }
-    for(uint8_t counter = 100; counter >= 0; counter -= 10){
-      LED_pwm(LED0, counter);
-      k_msleep(SLEEP_MS);
-    }
+    k_msleep(10);
   }
 
+  //Led Blinking
   /*
   LED_blink(LED1, LED_2HZ);
   while (1) {
@@ -40,6 +38,20 @@ int main(void) {
     k_msleep(SLEEP_MS);
     LED_set(LED2, LED_OFF);
     k_msleep(SLEEP_MS);
+  }
+  */
+
+  //LED Dimming with pwn
+  /*
+  while(1){
+    for(uint8_t counter = 0; counter <= 100; counter += 10){
+      LED_pwm(LED0, counter);
+      k_msleep(SLEEP_MS);
+    }
+    for(uint8_t counter = 100; counter >= 0; counter -= 10){
+      LED_pwm(LED0, counter);
+      k_msleep(SLEEP_MS);
+    }
   }
   */
   return 0;
